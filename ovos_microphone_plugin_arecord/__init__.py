@@ -178,7 +178,8 @@ class ArecordMicrophone(Microphone):
     arecord: ArecordStream = None
 
     def start(self):
-        self.arecord = ArecordStream(self.sample_rate)
+        self.arecord = ArecordStream(sample_rate=self.sample_rate,
+                                     channels=self.sample_channels)
         self.arecord.start()
 
     def read_chunk(self) -> Optional[bytes]:
